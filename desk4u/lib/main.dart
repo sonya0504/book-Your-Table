@@ -1,11 +1,12 @@
-import 'package:desk4u/views/Filters_Page.dart';
-import 'package:desk4u/views/Home_Page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:desk4u/views/Filters_Page.dart';
+import 'package:desk4u/views/Home_Page.dart';
 import 'package:desk4u/modules/Custom_Template.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
-  runApp(MyApp());
+  initializeDateFormatting().then((_) => runApp(MyApp()));
 }
 
 final ThemeData _themeData = new ThemeData(
@@ -13,7 +14,9 @@ final ThemeData _themeData = new ThemeData(
   primaryColor: Colors.grey[600],
   accentColor: Colors.deepOrange,
     fontFamily: 'Montserrat',
-
+  textTheme: TextTheme(
+    headline1: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w800, color: Colors.grey[600]),
+  ),
 );
 
 class MyApp extends StatelessWidget {
@@ -24,21 +27,21 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'desk4u',
       theme: _themeData,
-      home: MyHomePage(title: 'desk4u'),
+      home: MainView(title: 'desk4u'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class MainView extends StatefulWidget {
+  MainView({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MainViewState createState() => _MainViewState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {

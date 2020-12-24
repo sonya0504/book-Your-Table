@@ -13,15 +13,11 @@ class HomePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 30.0),
             child: Text(
                 'Wybierz oddział:',
-                style: TextStyle(
-                  fontSize: 25.0,
-                  color: Theme.of(context).primaryColor,
-                  fontWeight: FontWeight.w800,
-                )
+                style: Theme.of(context).textTheme.headline1,
             ),
           ),
           CustomBranch(branchImg: 'assets/images/deviniti-logo.png', branchAddress: 'sudecka', branchName: 'Deviniti'),
-          CustomBranch(branchImg: 'assets/images/deviniti-logo.png', branchAddress: 'debowa', branchName: 'Deviniti'),
+          CustomBranch(branchImg: 'assets/images/deviniti-logo.png', branchAddress: 'dębowa', branchName: 'Deviniti'),
           CustomBranch(branchImg: 'assets/images/logo-sp.png', branchAddress: 'sp-sudecka', branchName: 'SerwisPrawa'),
         ],
       ),
