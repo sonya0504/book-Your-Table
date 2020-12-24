@@ -1,3 +1,5 @@
+import 'package:desk4u/views/Filters_Page.dart';
+import 'package:desk4u/views/Home_Page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:desk4u/modules/Custom_Template.dart';
@@ -40,6 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomTemplate();
+    return CustomTemplate(
+      childElement: FiltersPage(),
+    );
   }
 }
