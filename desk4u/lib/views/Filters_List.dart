@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:desk4u/modules/Logo.dart';
 import 'package:desk4u/modules/Filter_Calendar.dart';
 
-class ListViewHomePage extends StatefulWidget {
+class FiltersList extends StatefulWidget {
   @override
-  _ListViewHomePageState createState() => _ListViewHomePageState();
+  _FiltersListState createState() => _FiltersListState();
 }
 
-class _ListViewHomePageState extends State<ListViewHomePage> {
+class _FiltersListState extends State<FiltersList> {
 
   var titleList = [
     'Dzień',
@@ -32,14 +33,24 @@ class _ListViewHomePageState extends State<ListViewHomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Theme.of(context).accentColor,
+        ),
         title: Text(
           'Filtry',
           style: TextStyle(
-            color: Colors.grey,
+            color: Theme.of(context).primaryColor,
           )
         ),
+        centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[100],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Logo(),
+          ),
+        ],
       ),
       body: ListView.builder(
         itemCount: titleList.length,

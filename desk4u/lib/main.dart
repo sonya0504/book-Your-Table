@@ -27,7 +27,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'desk4u',
       theme: _themeData,
-      home: MainView(title: 'desk4u'),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MainView(title: 'desk4u'),
+        '/filters': (context) => FiltersList(),
+      },
     );
   }
 }
@@ -45,9 +49,11 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    // return CustomTemplate(
-    //   childElement: ListViewHomePage(),
-    // );
-    return ListViewHomePage();
+    return CustomTemplate(
+      childElement: HomePage(),
+    );
   }
 }
+
+// todo na stronie filtrów dodać jako tytuł nazwę i adres oddziału
+// todo dodać wybór godziny
