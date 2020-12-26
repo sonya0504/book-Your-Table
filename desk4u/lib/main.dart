@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:desk4u/views/Filters_Page.dart';
 import 'package:desk4u/views/Home_Page.dart';
 import 'package:desk4u/modules/Custom_Template.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:desk4u/views/Filters_List.dart';
 
 void main() {
   initializeDateFormatting().then((_) => runApp(MyApp()));
@@ -45,8 +45,9 @@ class _MainViewState extends State<MainView> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomTemplate(
-      childElement: FiltersPage(),
-    );
+    // return CustomTemplate(
+    //   childElement: ListViewHomePage(),
+    // );
+    return ListViewHomePage();
   }
 }
