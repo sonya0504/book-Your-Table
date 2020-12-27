@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:desk4u/modules/Logo.dart';
 import 'package:desk4u/modules/Filter_Calendar.dart';
+import 'package:desk4u/modules/Filter_Time.dart';
 
 class FiltersList extends StatefulWidget {
   @override
@@ -19,7 +20,7 @@ class _FiltersListState extends State<FiltersList> {
 
   var widgetList = [
     FilterCalendar(),
-    Text('Tu będzie zegar'),
+    FilterTime(),
     Text('tu będzie wybór piętra'),
     Text('tu będzie wybór nr pokoju'),
     Text('tu będzie rzut pokoju i wybór biurka')
@@ -57,7 +58,10 @@ class _FiltersListState extends State<FiltersList> {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: (){
-             showDialogFunc(context, titleList[index], widgetList[index]);
+             showDialogFunc(context, titleList[index], widgetList[index]).then((value) {
+               SnackBar reservedData = SnackBar(content: Text('${titleList[index]}: $value'));
+               ScaffoldMessenger.of(context).showSnackBar(reservedData);
+             });
             },
             child: Card(
              child:
@@ -89,7 +93,7 @@ class _FiltersListState extends State<FiltersList> {
   }
 }
 
-showDialogFunc(context, title, desc) {
+Future<String> showDialogFunc(context, title, desc) {
   return showDialog(
     context: context,
     builder: (context){

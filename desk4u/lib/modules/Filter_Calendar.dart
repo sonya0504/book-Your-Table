@@ -10,6 +10,7 @@ class FilterCalendar extends StatefulWidget {
 class _FilterCalendarState extends State<FilterCalendar> {
 
   CalendarController _calendarController;
+  String _dateReservation;
 
   @override
   void initState() {
@@ -26,27 +27,51 @@ class _FilterCalendarState extends State<FilterCalendar> {
   @override
   Widget build(BuildContext context) {
 
-    return TableCalendar(
-      calendarController: _calendarController,
-      locale: 'pl_PL',
-      startingDayOfWeek: StartingDayOfWeek.monday,
-      calendarStyle: CalendarStyle(
-        todayColor: Theme.of(context).primaryColor,
-        todayStyle: TextStyle(
-          fontWeight: FontWeight.w400,
-          fontSize: 18.0,
-          color: Colors.white,
+    return Column(
+      children: [
+        TableCalendar(
+          calendarController: _calendarController,
+          locale: 'pl_PL',
+          startingDayOfWeek: StartingDayOfWeek.monday,
+          startDay: DateTime.now(),
+          calendarStyle: CalendarStyle(
+            todayColor: Theme.of(context).primaryColor,
+            todayStyle: TextStyle(
+              fontWeight: FontWeight.w400,
+              fontSize: 18.0,
+              color: Colors.white,
+            ),
+            selectedColor: Theme.of(context).accentColor,
+            selectedStyle: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18.0,
+              color: Colors.white,
+            ),
+          ),
+          onDaySelected: (date, events, _) {
+            print(date.toIso8601String());
+            setState(() {
+              _dateReservation = date.toIso8601String();
+            });
+
+          },
         ),
-        selectedColor: Theme.of(context).accentColor,
-        selectedStyle: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 18.0,
-          color: Colors.white,
+        SizedBox(
+          height: 10.0,
         ),
-      ),
-      onDaySelected: (date, events, _) {
-        print(date.toIso8601String());
-      },
+        RaisedButton(
+          onPressed: (){
+            Navigator.of(context).pop(_dateReservation);
+          },
+          color: Theme.of(context).accentColor,
+          child: Text(
+              'Zarezerwuj',
+              style: TextStyle(
+                color: Colors.white,
+              )
+          ),
+        )
+      ],
     );
   }
 }
