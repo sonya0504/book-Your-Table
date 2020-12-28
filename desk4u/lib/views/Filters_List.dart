@@ -3,6 +3,7 @@ import 'package:desk4u/modules/Logo.dart';
 import 'package:desk4u/modules/Filter_Calendar.dart';
 import 'package:desk4u/modules/Filter_Time.dart';
 import 'package:desk4u/modules/Filter_Floor.dart';
+import 'package:desk4u/modules/Filter_Room.dart';
 
 class FiltersList extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class _FiltersListState extends State<FiltersList> {
     FilterCalendar(),
     FilterTime(),
     FilterFloor(),
-    Text('tu będzie wybór nr pokoju'),
+    FilterRoom(),
     Text('tu będzie rzut pokoju i wybór biurka')
     
   ];
