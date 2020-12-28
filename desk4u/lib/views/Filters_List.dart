@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:desk4u/modules/Logo.dart';
 import 'package:desk4u/modules/Filter_Calendar.dart';
 import 'package:desk4u/modules/Filter_Time.dart';
+import 'package:desk4u/modules/Filter_Floor.dart';
 
 class FiltersList extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _FiltersListState extends State<FiltersList> {
   var widgetList = [
     FilterCalendar(),
     FilterTime(),
-    Text('tu będzie wybór piętra'),
+    FilterFloor(),
     Text('tu będzie wybór nr pokoju'),
     Text('tu będzie rzut pokoju i wybór biurka')
     
