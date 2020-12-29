@@ -1,16 +1,17 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class FilterRoom extends StatefulWidget {
+class FilterDesk extends StatefulWidget {
   @override
-  _FilterRoomState createState() => _FilterRoomState();
+  _FilterDeskState createState() => _FilterDeskState();
 }
 
-class _FilterRoomState extends State<FilterRoom> {
+class _FilterDeskState extends State<FilterDesk> {
 
-  int _roomSelected;
-  String _room;
+  int _deskSelected;
+  String _desk;
 
-  var roomsList = [
+  var desksList = [
     '#1',
     '#2',
     '#3',
@@ -27,27 +28,33 @@ class _FilterRoomState extends State<FilterRoom> {
       children: [
         Container(
           height: height,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/images/office.png'),
+              fit: BoxFit.fill,
+            ),
+          ),
           child: GridView.builder(
-            itemCount: roomsList.length,
+            itemCount: desksList.length,
             gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 150,
+              maxCrossAxisExtent: 100,
             ),
             itemBuilder: (context, index) => Card(
               child:  Ink(
-                color: _roomSelected == index ? Theme.of(context).accentColor : Colors.transparent,
+                color: _deskSelected == index ? Theme.of(context).accentColor : Colors.transparent,
 
                 child: ListTile(
                   onTap: () {
                     setState(() {
-                      _roomSelected = index;
-                      _room = roomsList[index];
+                      _deskSelected = index;
+                      _desk = desksList[index];
                     });
                   },
                   title: Text(
-                    roomsList[index],
+                    desksList[index],
                     style: TextStyle(
                       fontSize: 20.0,
-                      color: _roomSelected == index ? Colors.white : Theme.of(context).primaryColor,
+                      color: _deskSelected == index ? Colors.white : Theme.of(context).primaryColor,
                     ),
                   ),
                 ),
@@ -62,7 +69,7 @@ class _FilterRoomState extends State<FilterRoom> {
           alignment: Alignment.center,
           child: RaisedButton(
             onPressed: (){
-              Navigator.of(context).pop('$_room');
+              Navigator.of(context).pop('$_desk');
             },
             color: Theme.of(context).accentColor,
             child: Text(

@@ -10,7 +10,7 @@ class _FilterFloorState extends State<FilterFloor> {
   int _floorSelected;
   String _floor;
 
-  var floorList = [
+  var floorsList = [
     'Piętro I',
     'Piętro II',
     'Piętro III',
@@ -28,7 +28,7 @@ class _FilterFloorState extends State<FilterFloor> {
         ListView.builder(
           scrollDirection: Axis.vertical,
           shrinkWrap: true,
-          itemCount: floorList.length,
+          itemCount: floorsList.length,
           itemBuilder: (context, index) {
             return Card(
                 child:  Ink(
@@ -37,12 +37,12 @@ class _FilterFloorState extends State<FilterFloor> {
                   child: ListTile(
                     onTap: () {
                       setState(() {
-                        _floor = floorList[index];
+                        _floor = floorsList[index];
                         _floorSelected = index;
                       });
                     },
                     title: Text(
-                      floorList[index],
+                      floorsList[index],
                       style: TextStyle(
                         fontSize: 20.0,
                         color: _floorSelected == index ? Colors.white : Theme.of(context).primaryColor,
