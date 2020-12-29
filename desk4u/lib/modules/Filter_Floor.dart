@@ -7,7 +7,8 @@ class FilterFloor extends StatefulWidget {
 
 class _FilterFloorState extends State<FilterFloor> {
 
-  int _floor;
+  int _floorSelected;
+  String _floor;
 
   var floorList = [
     'Piętro I',
@@ -31,19 +32,20 @@ class _FilterFloorState extends State<FilterFloor> {
           itemBuilder: (context, index) {
             return Card(
                 child:  Ink(
-                  color: _floor == index ? Theme.of(context).accentColor : Colors.transparent,
+                  color: _floorSelected == index ? Theme.of(context).accentColor : Colors.transparent,
 
                   child: ListTile(
                     onTap: () {
                       setState(() {
-                        _floor = index;
+                        _floor = floorList[index];
+                        _floorSelected = index;
                       });
                     },
                     title: Text(
                       floorList[index],
                       style: TextStyle(
                         fontSize: 20.0,
-                        color: _floor == index ? Colors.white : Theme.of(context).primaryColor,
+                        color: _floorSelected == index ? Colors.white : Theme.of(context).primaryColor,
                       ),
                     ),
                   ),

@@ -7,49 +7,53 @@ class FilterRoom extends StatefulWidget {
 
 class _FilterRoomState extends State<FilterRoom> {
 
-  int _room;
+  int _roomSelected;
+  String _room;
 
   var roomList = [
     '#1',
     '#2',
     '#3',
+    '#4',
     '#5',
-    '#6',
   ];
 
   @override
   Widget build(BuildContext context) {
 
+    double height = MediaQuery.of(context).size.height * 0.5;
+
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: roomList.length,
-          itemBuilder: (context, index) {
-            return Card(
+        Container(
+          height: height,
+          child: GridView.builder(
+            itemCount: roomList.length,
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 150,
+            ),
+            itemBuilder: (context, index) => Card(
               child:  Ink(
-                color: _room == index ? Theme.of(context).accentColor : Colors.transparent,
+                color: _roomSelected == index ? Theme.of(context).accentColor : Colors.transparent,
 
                 child: ListTile(
                   onTap: () {
                     setState(() {
-                      _room = index;
+                      _roomSelected = index;
+                      _room = roomList[index];
                     });
                   },
                   title: Text(
                     roomList[index],
                     style: TextStyle(
                       fontSize: 20.0,
-                      color: _room == index ? Colors.white : Theme.of(context).primaryColor,
+                      color: _roomSelected == index ? Colors.white : Theme.of(context).primaryColor,
                     ),
                   ),
                 ),
               ),
-            );
-          },
+            ),
+          ),
         ),
         SizedBox(
           height: 15.0,
