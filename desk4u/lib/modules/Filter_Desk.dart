@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class FilterDesk extends StatefulWidget {
   @override
@@ -23,45 +24,167 @@ class _FilterDeskState extends State<FilterDesk> {
   Widget build(BuildContext context) {
 
     double height = MediaQuery.of(context).size.height * 0.5;
+    double width = MediaQuery.of(context).size.width;
 
     return Column(
       children: [
         Container(
           height: height,
+          width: width,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/office.png'),
               fit: BoxFit.fill,
             ),
           ),
-          child: GridView.builder(
-            itemCount: desksList.length,
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 100,
+          child: Stack(
+            children: [
+            Positioned(
+              top: 18.0,
+              left: 11.0,
+              width: 65,
+              height: 80,
+              child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Theme.of(context).primaryColor,
+                          width: 1
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/desk.png'),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    child: Text(
+                    desksList[0],
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: Theme.of(context).accentColor,
+                      ),
+                ),
+              ),
             ),
-            itemBuilder: (context, index) => Card(
-              child:  Ink(
-                color: _deskSelected == index ? Theme.of(context).accentColor : Colors.transparent,
-
-                child: ListTile(
-                  onTap: () {
-                    setState(() {
-                      _deskSelected = index;
-                      _desk = desksList[index];
-                    });
-                  },
-                  title: Text(
-                    desksList[index],
+              Positioned(
+                top: 130.0,
+                left: 11.0,
+                width: 65,
+                height: 80,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                        color: Theme.of(context).primaryColor,
+                        width: 1
+                    ),
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/desk.png'),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  child: Text(
+                    desksList[1],
+                    textAlign: TextAlign.end,
                     style: TextStyle(
-                      fontSize: 20.0,
-                      color: _deskSelected == index ? Colors.white : Theme.of(context).primaryColor,
+                      color: Theme.of(context).accentColor,
                     ),
                   ),
                 ),
               ),
-            ),
-          ),
+              Positioned(
+                top: 13.5,
+                left: 114.0,
+                width: 65,
+                height: 80,
+                child: Transform.rotate(
+                  angle: 3.14/2,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Theme.of(context).primaryColor,
+                          width: 1
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/desk.png'),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    child: Transform.rotate(
+                      angle: 11.0,
+                      origin: Offset(0.0, -50.0),
+                      child: Text(
+                        desksList[2],
+                        style: TextStyle(
+                          color: Theme.of(context).accentColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 100.0,
+                right: 30.0,
+                width: 65,
+                height: 80,
+                child: Transform.rotate(
+                  angle: 3.14,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Theme.of(context).primaryColor,
+                          width: 1
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/desk.png'),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    child: Transform.rotate(
+                      angle: 3.14,
+                      origin: Offset(0.0, -30.0),
+                      child: Text(
+                        desksList[3],
+                        style: TextStyle(
+                          color: Theme.of(context).accentColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                left: 114.0,
+                width: 65,
+                height: 80,
+                child: Transform.rotate(
+                  angle: 3.14/2,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color: Theme.of(context).primaryColor,
+                          width: 1
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/desk.png'),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                    child: Transform.rotate(
+                      angle: -3.14/2,
+                      origin: Offset(0.0, -50.0),
+                      child: Text(
+                        desksList[4],
+                        style: TextStyle(
+                          color: Theme.of(context).accentColor,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+          ],
         ),
+    ),
         SizedBox(
           height: 15.0,
         ),
