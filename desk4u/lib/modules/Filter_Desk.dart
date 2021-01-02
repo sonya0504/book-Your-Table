@@ -9,8 +9,8 @@ class FilterDesk extends StatefulWidget {
 
 class _FilterDeskState extends State<FilterDesk> {
 
-  int _deskSelected;
-  String _desk;
+  String _deskSelected;
+  int clickedDesk;
 
   var desksList = [
     '#1',
@@ -44,23 +44,32 @@ class _FilterDeskState extends State<FilterDesk> {
               left: 11.0,
               width: 65,
               height: 80,
-              child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Theme.of(context).primaryColor,
-                          width: 1
+              child: InkWell(
+                onTap: () {
+                  print(desksList[0]);
+                  setState(() {
+                    clickedDesk = 0;
+                    _deskSelected = desksList[0];
+                  });
+                },
+                child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: clickedDesk == 0 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
+                            width: 1
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/desk.png'),
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/desk.png'),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    child: Text(
-                    desksList[0],
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        color: Theme.of(context).accentColor,
-                      ),
+                      child: Text(
+                      desksList[0],
+                        textAlign: TextAlign.end,
+                        style: TextStyle(
+                          color: Theme.of(context).accentColor,
+                        ),
+                  ),
                 ),
               ),
             ),
@@ -69,22 +78,31 @@ class _FilterDeskState extends State<FilterDesk> {
                 left: 11.0,
                 width: 65,
                 height: 80,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                        color: Theme.of(context).primaryColor,
-                        width: 1
+                child: InkWell(
+                  onTap: () {
+                    print(desksList[1]);
+                    setState(() {
+                      clickedDesk = 1;
+                      _deskSelected = desksList[1];
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                          color: clickedDesk == 1 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
+                          width: 1
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage('assets/images/desk.png'),
+                        fit: BoxFit.fill,
+                      ),
                     ),
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/desk.png'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  child: Text(
-                    desksList[1],
-                    textAlign: TextAlign.end,
-                    style: TextStyle(
-                      color: Theme.of(context).accentColor,
+                    child: Text(
+                      desksList[1],
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        color: Theme.of(context).accentColor,
+                      ),
                     ),
                   ),
                 ),
@@ -94,26 +112,35 @@ class _FilterDeskState extends State<FilterDesk> {
                 left: 114.0,
                 width: 65,
                 height: 80,
-                child: Transform.rotate(
-                  angle: 3.14/2,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Theme.of(context).primaryColor,
-                          width: 1
+                child: InkWell(
+                  onTap: () {
+                    print(desksList[2]);
+                    setState(() {
+                      clickedDesk = 2;
+                      _deskSelected = desksList[2];
+                    });
+                  },
+                  child: Transform.rotate(
+                    angle: 3.14/2,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: clickedDesk == 2 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
+                            width: 1
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/desk.png'),
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/desk.png'),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    child: Transform.rotate(
-                      angle: 11.0,
-                      origin: Offset(0.0, -50.0),
-                      child: Text(
-                        desksList[2],
-                        style: TextStyle(
-                          color: Theme.of(context).accentColor,
+                      child: Transform.rotate(
+                        angle: 11.0,
+                        origin: Offset(0.0, -50.0),
+                        child: Text(
+                          desksList[2],
+                          style: TextStyle(
+                            color: Theme.of(context).accentColor,
+                          ),
                         ),
                       ),
                     ),
@@ -125,26 +152,35 @@ class _FilterDeskState extends State<FilterDesk> {
                 right: 30.0,
                 width: 65,
                 height: 80,
-                child: Transform.rotate(
-                  angle: 3.14,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Theme.of(context).primaryColor,
-                          width: 1
+                child: InkWell(
+                  onTap: () {
+                    print(desksList[3]);
+                    setState(() {
+                      clickedDesk = 3;
+                      _deskSelected = desksList[3];
+                    });
+                  },
+                  child: Transform.rotate(
+                    angle: 3.14,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: clickedDesk == 3 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
+                            width: 1
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/desk.png'),
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/desk.png'),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    child: Transform.rotate(
-                      angle: 3.14,
-                      origin: Offset(0.0, -30.0),
-                      child: Text(
-                        desksList[3],
-                        style: TextStyle(
-                          color: Theme.of(context).accentColor,
+                      child: Transform.rotate(
+                        angle: 3.14,
+                        origin: Offset(0.0, -30.0),
+                        child: Text(
+                          desksList[3],
+                          style: TextStyle(
+                            color: Theme.of(context).accentColor,
+                          ),
                         ),
                       ),
                     ),
@@ -156,26 +192,35 @@ class _FilterDeskState extends State<FilterDesk> {
                 left: 114.0,
                 width: 65,
                 height: 80,
-                child: Transform.rotate(
-                  angle: 3.14/2,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Theme.of(context).primaryColor,
-                          width: 1
+                child: InkWell(
+                  onTap: () {
+                    print(desksList[4]);
+                    setState(() {
+                      clickedDesk = 4;
+                      _deskSelected = desksList[4];
+                    });
+                  },
+                  child: Transform.rotate(
+                    angle: 3.14/2,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                            color: clickedDesk == 4 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
+                            width: 1
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage('assets/images/desk.png'),
+                          fit: BoxFit.fill,
+                        ),
                       ),
-                      image: DecorationImage(
-                        image: AssetImage('assets/images/desk.png'),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
-                    child: Transform.rotate(
-                      angle: -3.14/2,
-                      origin: Offset(0.0, -50.0),
-                      child: Text(
-                        desksList[4],
-                        style: TextStyle(
-                          color: Theme.of(context).accentColor,
+                      child: Transform.rotate(
+                        angle: -3.14/2,
+                        origin: Offset(0.0, -50.0),
+                        child: Text(
+                          desksList[4],
+                          style: TextStyle(
+                            color: Theme.of(context).accentColor,
+                          ),
                         ),
                       ),
                     ),
@@ -192,7 +237,7 @@ class _FilterDeskState extends State<FilterDesk> {
           alignment: Alignment.center,
           child: RaisedButton(
             onPressed: (){
-              Navigator.of(context).pop('$_desk');
+              Navigator.of(context).pop('$_deskSelected');
             },
             color: Theme.of(context).accentColor,
             child: Text(
