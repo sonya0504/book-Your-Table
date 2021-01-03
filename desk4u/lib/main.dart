@@ -4,6 +4,7 @@ import 'package:desk4u/views/Home_Page.dart';
 import 'package:desk4u/modules/Custom_Template.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:desk4u/views/Filters_List.dart';
+import 'package:desk4u/views/Summary_Page.dart';
 
 void main() {
   initializeDateFormatting().then((_) => runApp(MyApp()));
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => MainView(title: 'desk4u'),
         '/filters': (context) => FiltersList(),
+        '/summary': (context) => SummaryPage(),
       },
     );
   }
@@ -55,5 +57,4 @@ class _MainViewState extends State<MainView> {
   }
 }
 
-// todo na stronie filtrów dodać jako tytuł nazwę i adres oddziału
-// todo dodać wybór godziny
+// todo AppBar profilowe i menu - view nic tu nie ma

@@ -15,7 +15,6 @@ class _FilterTimeState extends State<FilterTime> {
   String _startTimeReservation;
   String _endTimeReservation;
 
-
   @override
   Widget build(BuildContext context) {
 
@@ -48,9 +47,8 @@ class _FilterTimeState extends State<FilterTime> {
                 minimumDate: _dateTime,
                 mode: CupertinoDatePickerMode.time,
                 onDateTimeChanged: (dateTime){
-                print('start $dateTime');
                 setState(() {
-                  _startTimeReservation = dateTime.toIso8601String();
+                  _startTimeReservation = dateTime.toIso8601String().substring(11,16);
                 });
                 }
             ),
@@ -81,9 +79,8 @@ class _FilterTimeState extends State<FilterTime> {
                 minimumDate: _dateTime,
                 mode: CupertinoDatePickerMode.time,
                 onDateTimeChanged: (dateTime){
-                  print('end $dateTime');
                   setState(() {
-                    _endTimeReservation = dateTime.toIso8601String();
+                    _endTimeReservation = dateTime.toIso8601String().substring(11,16);
                   });
                 }
             ),
@@ -96,11 +93,11 @@ class _FilterTimeState extends State<FilterTime> {
           alignment: Alignment.center,
           child: RaisedButton(
               onPressed: (){
-                Navigator.of(context).pop('Start: $_startTimeReservation, End: $_endTimeReservation');
+                Navigator.of(context).pop('$_startTimeReservation - $_endTimeReservation');
               },
               color: Theme.of(context).accentColor,
               child: Text(
-                  'Zarezerwuj',
+                  'Wybierz',
                   style: TextStyle(
                     color: Colors.white,
                   )

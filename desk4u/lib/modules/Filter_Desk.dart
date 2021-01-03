@@ -46,7 +46,6 @@ class _FilterDeskState extends State<FilterDesk> {
               height: 80,
               child: InkWell(
                 onTap: () {
-                  print(desksList[0]);
                   setState(() {
                     clickedDesk = 0;
                     _deskSelected = desksList[0];
@@ -80,7 +79,6 @@ class _FilterDeskState extends State<FilterDesk> {
                 height: 80,
                 child: InkWell(
                   onTap: () {
-                    print(desksList[1]);
                     setState(() {
                       clickedDesk = 1;
                       _deskSelected = desksList[1];
@@ -114,7 +112,6 @@ class _FilterDeskState extends State<FilterDesk> {
                 height: 80,
                 child: InkWell(
                   onTap: () {
-                    print(desksList[2]);
                     setState(() {
                       clickedDesk = 2;
                       _deskSelected = desksList[2];
@@ -154,7 +151,6 @@ class _FilterDeskState extends State<FilterDesk> {
                 height: 80,
                 child: InkWell(
                   onTap: () {
-                    print(desksList[3]);
                     setState(() {
                       clickedDesk = 3;
                       _deskSelected = desksList[3];
@@ -194,7 +190,6 @@ class _FilterDeskState extends State<FilterDesk> {
                 height: 80,
                 child: InkWell(
                   onTap: () {
-                    print(desksList[4]);
                     setState(() {
                       clickedDesk = 4;
                       _deskSelected = desksList[4];
@@ -241,7 +236,7 @@ class _FilterDeskState extends State<FilterDesk> {
             },
             color: Theme.of(context).accentColor,
             child: Text(
-                'Zarezerwuj',
+                'Wybierz',
                 style: TextStyle(
                   color: Colors.white,
                 )

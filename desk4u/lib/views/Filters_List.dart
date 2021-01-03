@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:desk4u/modules/Logo.dart';
+import 'package:desk4u/data/Reservation.dart';
 import 'package:desk4u/modules/Filter_Calendar.dart';
 import 'package:desk4u/modules/Filter_Time.dart';
 import 'package:desk4u/modules/Filter_Floor.dart';
@@ -7,11 +8,18 @@ import 'package:desk4u/modules/Filter_Room.dart';
 import 'package:desk4u/modules/Filter_Desk.dart';
 
 class FiltersList extends StatefulWidget {
+
   @override
   _FiltersListState createState() => _FiltersListState();
 }
 
 class _FiltersListState extends State<FiltersList> {
+
+  String day = 'Nie wybrano';
+  String bookingHours = 'Nie wybrano';
+  String floor = 'Nie wybrano';
+  String room = 'Nie wybrano';
+  String desk = 'Nie wybrano';
 
   var titleList = [
     'Dzień',
@@ -27,7 +35,6 @@ class _FiltersListState extends State<FiltersList> {
     FilterFloor(),
     FilterRoom(),
     FilterDesk(),
-
   ];
 
   @override
@@ -56,6 +63,19 @@ class _FiltersListState extends State<FiltersList> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        icon: Icon(Icons.create_outlined),
+        label: Text('Zarezerwuj'),
+        onPressed: () {
+          Navigator.pushNamed(context, '/summary', arguments: {
+            'day': day,
+            'bookingHours': bookingHours,
+            'floor': floor,
+            'room': room,
+            'desk': desk
+          });
+        },
+      ),
       body: ListView.builder(
         itemCount: titleList.length,
         itemBuilder: (context, index) {
@@ -64,6 +84,29 @@ class _FiltersListState extends State<FiltersList> {
              showDialogFunc(context, titleList[index], widgetList[index]).then((value) {
                SnackBar reservedData = SnackBar(content: Text('${titleList[index]}: $value'));
                ScaffoldMessenger.of(context).showSnackBar(reservedData);
+
+               setState(() {
+                 if(index == 0) {
+                   day = value;
+                 }
+
+                 if(index == 1) {
+                   bookingHours = value;
+                 }
+
+                 if(index == 2) {
+                   floor = value;
+                 }
+
+                 if(index == 3) {
+                   room = value;
+                 }
+
+                 if(index == 4) {
+                   desk = value;
+                 }
+               });
+
              });
             },
             child: Card(
@@ -91,7 +134,7 @@ class _FiltersListState extends State<FiltersList> {
             ),
           );
         },
-      )
+      ),
     );
   }
 }

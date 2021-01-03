@@ -11,11 +11,11 @@ class _FilterFloorState extends State<FilterFloor> {
   String _floor;
 
   var floorsList = [
-    'Piętro I',
-    'Piętro II',
-    'Piętro III',
-    'Piętro IV',
-    'Piętro V',
+    'I',
+    'II',
+    'III',
+    'IV',
+    'V',
   ];
 
   @override
@@ -42,7 +42,7 @@ class _FilterFloorState extends State<FilterFloor> {
                       });
                     },
                     title: Text(
-                      floorsList[index],
+                      'Piętro ${floorsList[index]}',
                       style: TextStyle(
                         fontSize: 20.0,
                         color: _floorSelected == index ? Colors.white : Theme.of(context).primaryColor,
@@ -64,7 +64,7 @@ class _FilterFloorState extends State<FilterFloor> {
             },
             color: Theme.of(context).accentColor,
             child: Text(
-                'Zarezerwuj',
+                'Wybierz',
                 style: TextStyle(
                   color: Colors.white,
                 )

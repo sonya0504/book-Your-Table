@@ -22,7 +22,6 @@ class _CustomBranchState extends State<CustomBranch> {
   }
 
   void _goToFilters() {
-    print('click $_branch');
     Navigator.pushNamed(context, '/filters');
   }
 

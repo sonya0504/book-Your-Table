@@ -66,7 +66,7 @@ class _FilterRoomState extends State<FilterRoom> {
             },
             color: Theme.of(context).accentColor,
             child: Text(
-                'Zarezerwuj',
+                'Wybierz',
                 style: TextStyle(
                   color: Colors.white,
                 )

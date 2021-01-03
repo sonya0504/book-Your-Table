@@ -49,9 +49,8 @@ class _FilterCalendarState extends State<FilterCalendar> {
             ),
           ),
           onDaySelected: (date, events, _) {
-            print(date.toIso8601String());
             setState(() {
-              _dateReservation = date.toIso8601String();
+              _dateReservation = date.toIso8601String().substring(0,10);
             });
 
           },
@@ -65,7 +64,7 @@ class _FilterCalendarState extends State<FilterCalendar> {
           },
           color: Theme.of(context).accentColor,
           child: Text(
-              'Zarezerwuj',
+              'Wybierz',
               style: TextStyle(
                 color: Colors.white,
               )
