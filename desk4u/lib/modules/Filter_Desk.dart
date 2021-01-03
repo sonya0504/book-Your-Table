@@ -55,7 +55,7 @@ class _FilterDeskState extends State<FilterDesk> {
                       decoration: BoxDecoration(
                         border: Border.all(
                             color: clickedDesk == 0 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
-                            width: 1
+                            width: clickedDesk == 0 ? 2 : 1,
                         ),
                         image: DecorationImage(
                           image: AssetImage('assets/images/desk.png'),
@@ -88,7 +88,7 @@ class _FilterDeskState extends State<FilterDesk> {
                     decoration: BoxDecoration(
                       border: Border.all(
                           color: clickedDesk == 1 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
-                          width: 1
+                          width: clickedDesk == 1 ? 2 : 1,
                       ),
                       image: DecorationImage(
                         image: AssetImage('assets/images/desk.png'),
@@ -123,7 +123,7 @@ class _FilterDeskState extends State<FilterDesk> {
                       decoration: BoxDecoration(
                         border: Border.all(
                             color: clickedDesk == 2 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
-                            width: 1
+                            width: clickedDesk == 2 ? 2 : 1,
                         ),
                         image: DecorationImage(
                           image: AssetImage('assets/images/desk.png'),
@@ -162,7 +162,7 @@ class _FilterDeskState extends State<FilterDesk> {
                       decoration: BoxDecoration(
                         border: Border.all(
                             color: clickedDesk == 3 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
-                            width: 1
+                            width: clickedDesk == 3 ? 2 : 1,
                         ),
                         image: DecorationImage(
                           image: AssetImage('assets/images/desk.png'),
@@ -201,7 +201,7 @@ class _FilterDeskState extends State<FilterDesk> {
                       decoration: BoxDecoration(
                         border: Border.all(
                             color: clickedDesk == 4 ? Theme.of(context).accentColor : Theme.of(context).primaryColor,
-                            width: 1
+                            width: clickedDesk == 4 ? 2 : 1,
                         ),
                         image: DecorationImage(
                           image: AssetImage('assets/images/desk.png'),

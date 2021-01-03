@@ -44,10 +44,10 @@ class _FilterTimeState extends State<FilterTime> {
             child: CupertinoDatePicker(
               initialDateTime: _dateTime,
                 use24hFormat: true,
-                minimumDate: _dateTime,
+                // minimumDate: _dateTime,
                 mode: CupertinoDatePickerMode.time,
                 onDateTimeChanged: (dateTime){
-                setState(() {
+                  setState(() {
                   _startTimeReservation = dateTime.toIso8601String().substring(11,16);
                 });
                 }
@@ -76,7 +76,7 @@ class _FilterTimeState extends State<FilterTime> {
             child: CupertinoDatePicker(
                 initialDateTime: _dateTime,
                 use24hFormat: true,
-                minimumDate: _dateTime,
+                // minimumDate: _dateTime,
                 mode: CupertinoDatePickerMode.time,
                 onDateTimeChanged: (dateTime){
                   setState(() {

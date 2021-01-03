@@ -5,6 +5,8 @@ import 'package:desk4u/modules/Custom_Template.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:desk4u/views/Filters_List.dart';
 import 'package:desk4u/views/Summary_Page.dart';
+import 'package:desk4u/views/Menu.dart';
+import 'views/History_of_reservation.dart';
 
 void main() {
   initializeDateFormatting().then((_) => runApp(MyApp()));
@@ -33,6 +35,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => MainView(title: 'desk4u'),
         '/filters': (context) => FiltersList(),
         '/summary': (context) => SummaryPage(),
+        '/menu': (context) => Menu(),
+        '/history': (context) => HistoryOfReservation(),
       },
     );
   }
@@ -56,5 +60,3 @@ class _MainViewState extends State<MainView> {
     );
   }
 }
-
-// todo AppBar profilowe i menu - view nic tu nie ma

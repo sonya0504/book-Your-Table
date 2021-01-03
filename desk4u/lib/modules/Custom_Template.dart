@@ -20,19 +20,27 @@ class _CustomTemplateState extends State<CustomTemplate> {
         centerTitle: true,
         leading: Padding(
           padding: const EdgeInsets.all(5.0),
-          child: Image.asset(
-            'assets/images/profile.png',
-            width: 40,
-            height: 40,
-            fit: BoxFit.contain,
-            colorBlendMode: BlendMode.darken,
-            semanticLabel: 'Your image',
+          child: GestureDetector(
+            onTap: (){
+              Navigator.pushNamed(context, '/history');
+            },
+            child: Image.asset(
+              'assets/images/profile.png',
+              width: 40,
+              height: 40,
+              fit: BoxFit.contain,
+              colorBlendMode: BlendMode.darken,
+              semanticLabel: 'Your image',
+
+            ),
           ),
         ),
         title: Logo(),
         actions: [
           IconButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.pushNamed(context, '/menu');
+            },
             icon: Icon(
               Icons.menu,
               size: 30.0,
